@@ -1,0 +1,4 @@
+{
+  "channel_id": "SEU_CHANNEL_ID_AQUI",
+  "instructions": "Para obter seu CHANNEL_ID, siga um desses métodos:\n\n1. **Método 1: Via Token JWT (RECOMENDADO)**\n   - Após fazer login no Timberbot, abra o arquivo token.json\n   - O token é um JWT, decodifique usando https://jwt.io\n   - O campo 'sub' é seu channel_id\n\n2. **Método 2: Via API da Kick**\n   - Acesse https://api.kick.com/public/v1/channels/rewards com seu token\n   - Procure pelo campo 'channel_id' na resposta\n\n3. **Método 3: Via URL do Kick**\n   - Vá para https://kick.com/dashboard\n   - Procure pela informação de canal no seu perfil\n\nDEPOIS: Renomeie este arquivo de channel.json.example para channel.json e preencha o CHANNEL_ID"
+}

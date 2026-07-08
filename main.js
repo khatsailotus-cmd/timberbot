@@ -23,9 +23,7 @@ function createWindow() {
   });
 
   Menu.setApplicationMenu(null);
-  setInterval(bot.fetchRemoteEvents, 5000); // a cada 5 segundos
-
-
+  
   // atalhos de reload
   mainWindow.webContents.on("before-input-event", (event, input) => {
     if (input.key === "F5" && input.type === "keyDown") {
@@ -40,6 +38,7 @@ function createWindow() {
 
   mainWindow.loadFile("index.html");
 
+  // Inicia polling de redemptions quando janela carregar
   mainWindow.webContents.on("did-finish-load", () => {
     loadToken(mainWindow);
     watchTokenFile(mainWindow);
@@ -62,12 +61,26 @@ function loadToken(win) {
     win.webContents.send("message", { type: "token-status", message: "✅ Token carregado" });
     win.webContents.send("message", { type: "login-disabled", disabled: true });
 
-    if (!webhookStarted) {
-      bot.startWebhookServer(3001);
-      webhookStarted = true;
-    }
-
-    bot.subscribeToEvents();
+    // Busca informações do canal e inicia polling
+    bot.fetchChannelInfo().then(() => {
+      if (!webhookStarted) {
+        bot.startPolling();
+        webhookStarted = true;
+      }
+    }).catch(err => {
+      console.error("❌ Erro ao carregar channel info:", err);
+      
+      // Se username é "unknown", pede pro usuário informar
+      if (tokenData.username === "unknown") {
+        console.log("📝 Aguardando username do usuário...");
+        win.webContents.send("message", { 
+          type: "username-required", 
+          message: "Digite seu username do Kick para continuar" 
+        });
+      } else {
+        win.webContents.send("message", { type: "token-status", message: "⚠️ Erro ao carregar canal" });
+      }
+    });
   } catch {
     win.webContents.send("message", { type: "token-status", message: "❌ Nenhum token salvo" });
     win.webContents.send("message", { type: "login-disabled", disabled: false });
@@ -148,9 +161,90 @@ ipcMain.on("logout", () => {
   try {
     fs.unlinkSync("token.json");
   } catch {}
-  stopAuthServer(3000);
-  authServerStarted = false;
+  bot.stopPolling();
+  webhookStarted = false;
   console.log("🚪 Logout realizado. Token removido.");
+});
+
+/* 🔑 DEFINIR USERNAME (fallback se Kick API não retornar) */
+ipcMain.on("set-username", async (event, username) => {
+  try {
+    console.log(`📝 Username fornecido: ${username}`);
+    
+    // Descobre channel ID usando o username
+    const channelId = await bot.discoverChannelIdByUsername(username);
+    if (channelId) {
+      event.sender.send("message", { 
+        type: "channel-discovered", 
+        channelId, 
+        message: `✅ Canal descoberto: ${channelId}` 
+      });
+      
+      // Inicia polling
+      if (!webhookStarted) {
+        bot.startPolling();
+        webhookStarted = true;
+      }
+    } else {
+      event.sender.send("message", { 
+        type: "channel-error", 
+        message: "❌ Não foi possível descobrir o channel ID" 
+      });
+    }
+  } catch (err) {
+    console.error("❌ Erro ao definir username:", err);
+    event.sender.send("message", { 
+      type: "channel-error", 
+      message: `Erro: ${err.message}` 
+    });
+  }
+});
+
+/* 🎮 TIMBERBORN LEVERS */
+ipcMain.on("save-lever-mapping", async (event, rewardId, rewardTitle, leverId, leverName) => {
+  try {
+    const db = require("./db");
+    await db.saveLeverMapping(rewardId, rewardTitle, leverId, leverName);
+    event.sender.send("message", { type: "lever-mapping-saved", rewardId, leverId });
+    console.log(`✅ Mapping salvo: ${rewardTitle} → ${leverName}`);
+  } catch (err) {
+    event.sender.send("message", { type: "lever-mapping-error", message: err.message });
+  }
+});
+
+ipcMain.on("get-all-lever-mappings", async (event) => {
+  try {
+    const db = require("./db");
+    const mappings = await db.getAllLeverMappings();
+    event.sender.send("message", { type: "lever-mappings-list", mappings });
+  } catch (err) {
+    event.sender.send("message", { type: "lever-mapping-error", message: err.message });
+  }
+});
+
+ipcMain.on("delete-lever-mapping", async (event, rewardId) => {
+  try {
+    const db = require("./db");
+    await db.deleteLeverMapping(rewardId);
+    event.sender.send("message", { type: "lever-mapping-deleted", rewardId });
+    console.log(`✅ Mapping deletado: ${rewardId}`);
+  } catch (err) {
+    event.sender.send("message", { type: "lever-mapping-error", message: err.message });
+  }
+});
+
+ipcMain.on("get-timberborn-levers", async (event) => {
+  try {
+    const axios = require("axios");
+    const response = await axios.get("http://localhost:8080/api/levers", { timeout: 5000 });
+    const levers = response.data?.data || [];
+    event.sender.send("message", { type: "timberborn-levers-list", levers });
+  } catch (err) {
+    event.sender.send("message", { 
+      type: "timberborn-levers-error", 
+      message: "Timberborn não está rodando em localhost:8080" 
+    });
+  }
 });
 
 app.whenReady().then(() => {

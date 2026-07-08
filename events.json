@@ -1394,5 +1394,169 @@
   {
     "timestamp": 1783535189793,
     "message": "Erro ao atualizar cache de recompensas: Request failed with status code 401"
+  },
+  {
+    "timestamp": 1783541751572,
+    "message": "Erro ao buscar channel: Request failed with status code 401"
+  },
+  {
+    "timestamp": 1783541859891,
+    "message": "⚠️ Channel ID não encontrado na resposta - verifique se token tem permissões corretas"
+  },
+  {
+    "timestamp": 1783541859894,
+    "message": "📡 Polling iniciado"
+  },
+  {
+    "timestamp": 1783541897889,
+    "message": "⚠️ Channel ID não encontrado - tente fazer login novamente com Kick"
+  },
+  {
+    "timestamp": 1783541897892,
+    "message": "❌ Polling não iniciado: Channel ID ausente"
+  },
+  {
+    "timestamp": 1783541909947,
+    "message": "⚠️ Channel ID não encontrado - tente fazer login novamente com Kick"
+  },
+  {
+    "timestamp": 1783541909950,
+    "message": "❌ Polling não iniciado: Channel ID ausente"
+  },
+  {
+    "timestamp": 1783542026029,
+    "message": "⚠️ Channel ID não encontrado. Crie arquivo channel.json"
+  },
+  {
+    "timestamp": 1783542026033,
+    "message": "❌ Polling não iniciado: Channel ID ausente"
+  },
+  {
+    "timestamp": 1783542532466,
+    "message": "⚠️ Channel ID não encontrado. Faça login novamente."
+  },
+  {
+    "timestamp": 1783542532470,
+    "message": "❌ Polling não iniciado: Channel ID ausente"
+  },
+  {
+    "timestamp": 1783542585605,
+    "message": "⚠️ Channel ID não encontrado. Faça login novamente."
+  },
+  {
+    "timestamp": 1783542585610,
+    "message": "❌ Polling não iniciado: Channel ID ausente"
+  },
+  {
+    "timestamp": 1783542768875,
+    "message": "⚠️ Channel ID não encontrado. Faça login novamente."
+  },
+  {
+    "timestamp": 1783542768881,
+    "message": "❌ Polling não iniciado: Channel ID ausente"
+  },
+  {
+    "timestamp": 1783542786661,
+    "message": "⚠️ Channel ID não encontrado. Faça login novamente."
+  },
+  {
+    "timestamp": 1783542786665,
+    "message": "❌ Polling não iniciado: Channel ID ausente"
+  },
+  {
+    "timestamp": 1783542845468,
+    "message": "⚠️ Channel ID não encontrado. Faça login novamente."
+  },
+  {
+    "timestamp": 1783542845472,
+    "message": "❌ Polling não iniciado: Channel ID ausente"
+  },
+  {
+    "timestamp": 1783542863237,
+    "message": "⚠️ Channel ID não encontrado. Faça login novamente."
+  },
+  {
+    "timestamp": 1783542863240,
+    "message": "❌ Polling não iniciado: Channel ID ausente"
+  },
+  {
+    "timestamp": 1783542967613,
+    "message": "⚠️ Channel ID não encontrado. Faça login novamente."
+  },
+  {
+    "timestamp": 1783542967616,
+    "message": "❌ Polling não iniciado: Channel ID ausente"
+  },
+  {
+    "timestamp": 1783542983440,
+    "message": "⚠️ Channel ID não encontrado. Faça login novamente."
+  },
+  {
+    "timestamp": 1783542983444,
+    "message": "❌ Polling não iniciado: Channel ID ausente"
+  },
+  {
+    "timestamp": 1783543043336,
+    "message": "⚠️ Channel ID não encontrado. Faça login novamente."
+  },
+  {
+    "timestamp": 1783543043343,
+    "message": "❌ Polling não iniciado: Channel ID ausente"
+  },
+  {
+    "timestamp": 1783543060212,
+    "message": "⚠️ Channel ID não encontrado. Faça login novamente."
+  },
+  {
+    "timestamp": 1783543060215,
+    "message": "❌ Polling não iniciado: Channel ID ausente"
+  },
+  {
+    "timestamp": 1783543131867,
+    "message": "⚠️ Channel ID não encontrado. Faça login novamente."
+  },
+  {
+    "timestamp": 1783543131875,
+    "message": "❌ Polling não iniciado: Channel ID ausente"
+  },
+  {
+    "timestamp": 1783543150671,
+    "message": "⚠️ Channel ID não encontrado. Faça login novamente."
+  },
+  {
+    "timestamp": 1783543150676,
+    "message": "❌ Polling não iniciado: Channel ID ausente"
+  },
+  {
+    "timestamp": 1783543235078,
+    "message": "⚠️ Channel ID não encontrado. Faça login novamente."
+  },
+  {
+    "timestamp": 1783543235082,
+    "message": "❌ Polling não iniciado: Channel ID ausente"
+  },
+  {
+    "timestamp": 1783543260003,
+    "message": "⚠️ Channel ID não encontrado. Faça login novamente."
+  },
+  {
+    "timestamp": 1783543260012,
+    "message": "❌ Polling não iniciado: Channel ID ausente"
+  },
+  {
+    "timestamp": 1783543329196,
+    "message": "⚠️ Channel ID não encontrado. Faça login novamente."
+  },
+  {
+    "timestamp": 1783543329202,
+    "message": "❌ Polling não iniciado: Channel ID ausente"
+  },
+  {
+    "timestamp": 1783543368254,
+    "message": "⚠️ Channel ID não encontrado. Faça login novamente."
+  },
+  {
+    "timestamp": 1783543368258,
+    "message": "❌ Polling não iniciado: Channel ID ausente"
   }
 ]

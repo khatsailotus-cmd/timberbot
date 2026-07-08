@@ -8,6 +8,7 @@ const db = require("./db");
 
 let mainWindow = null;
 let globalAccessToken = null;
+let globalChannelId = null;
 let kickPublicKey = null;
 
 const userEventsFile = path.join(__dirname, "user_events.json");
@@ -74,9 +75,355 @@ function resetSeenEvents() {
 }
 resetSeenEvents();
 
+/* ========= POLLING DE REDEMPTIONS ========= */
+let pollingInterval = 2000; // 2 segundos
+let pollingTimer = null;
+let isPolling = false;
+
+async function fetchNewRedemptions() {
+  if (isPolling || !globalAccessToken || !globalChannelId) return;
+  
+  isPolling = true;
+  try {
+    // Busca últimas redemptions do canal usando o channel_id correto
+    const response = await axios.get(
+      `https://api.kick.com/public/v1/channels/${globalChannelId}/rewards/redemptions`,
+      {
+        headers: { Authorization: `Bearer ${globalAccessToken}`, Accept: "*/*" },
+        params: { limit: 10 } // Últimas 10 redemptions
+      }
+    );
+
+    const redemptions = response.data?.data || [];
+    
+    // Processa cada redemption
+    for (const redemption of redemptions) {
+      const key = `${redemption.id}-${redemption.status}`;
+      
+      if (!seenEvents.has(key)) {
+        seenEvents.add(key);
+        
+        const rewardEvent = {
+          reward_id: redemption.reward.id,
+          reward_title: redemption.reward.title,
+          user: redemption.redeemer.username,
+          status: redemption.status,
+          redemption_id: redemption.id
+        };
+        
+        // Salva no arquivo JSON
+        saveUserReward(rewardEvent);
+        
+        // Se foi aceita, aciona o lever
+        if (redemption.status === "accepted") {
+          await handleAcceptedRedemption(rewardEvent);
+        }
+        
+        // Envia para UI
+        if (mainWindow) {
+          const uiType = 
+            redemption.status === "pending" ? "reward-pending" :
+            redemption.status === "accepted" ? "reward-approved" :
+            "reward-denied";
+          
+          mainWindow.webContents.send("message", {
+            type: uiType,
+            data: rewardEvent
+          });
+        }
+      }
+    }
+
+    // Reset backoff se sucesso
+    pollingInterval = 2000;
+    
+  } catch (err) {
+    if (err.response?.status === 429) {
+      // Rate limited - backoff exponencial
+      pollingInterval = Math.min(pollingInterval * 2, 60000); // Max 60s
+      console.warn(`⚠️ Rate limited. Próxima verificação em ${pollingInterval}ms`);
+    } else if (err.response?.status === 404) {
+      console.warn(`⚠️ Endpoint não encontrado. Verifique o channel_id: ${globalChannelId}`);
+    } else {
+      console.error("❌ Erro ao buscar redemptions:", err.message);
+    }
+  } finally {
+    isPolling = false;
+  }
+}
+
+async function handleAcceptedRedemption(rewardEvent) {
+  try {
+    // Busca mapping de recompensa para lever
+    const mapping = await db.getLeverMapping(rewardEvent.reward_id);
+    
+    if (!mapping) {
+      logUserEvent(`⚠️ Nenhum lever configurado para: ${rewardEvent.reward_title}`);
+      return;
+    }
+    
+    // Aciona o lever
+    const result = await triggerTimberborn(mapping.lever_id, true);
+    
+    if (result.success) {
+      const logMsg = `🎮 Lever acionado: ${mapping.lever_name} (${rewardEvent.user})`;
+      logUserEvent(logMsg);
+      console.log(logMsg);
+    } else {
+      const logMsg = `❌ Erro ao acionar lever: ${mapping.lever_name}`;
+      logUserEvent(logMsg);
+      console.error(logMsg, result.error);
+    }
+  } catch (err) {
+    console.error("❌ Erro ao processar redemption aceita:", err.message);
+  }
+}
+
+function startPolling() {
+  if (pollingTimer) return; // Já está rodando
+  
+  if (!globalChannelId) {
+    console.error("❌ Channel ID não disponível. Polling não pode iniciar.");
+    logTechEvent("❌ Polling não iniciado: Channel ID ausente");
+    return;
+  }
+  
+  console.log("📡 Iniciando polling de redemptions (2s)");
+  logTechEvent("📡 Polling iniciado");
+  fetchNewRedemptions(); // Primeira execução imediata
+  
+  // Timer que se ajusta dinamicamente
+  const setNextPoll = () => {
+    pollingTimer = setTimeout(() => {
+      fetchNewRedemptions();
+      if (pollingTimer) {
+        setNextPoll(); // Agenda próxima verificação
+      }
+    }, pollingInterval);
+  };
+  
+  setNextPoll();
+}
+
+function stopPolling() {
+  if (pollingTimer) {
+    clearTimeout(pollingTimer);
+    pollingTimer = null;
+    console.log("⏹️ Polling parado");
+  }
+}
+
+// Função auxiliar para acionar Timberborn
+async function triggerTimberborn(leverId, state = true) {
+  try {
+    const response = await axios.post(
+      `http://localhost:8080/api/levers/${leverId}`,
+      { state },
+      { timeout: 5000 }
+    );
+    
+    logTechEvent(`Lever acionado: ${leverId} = ${state}`);
+    return { success: true, data: response.data };
+  } catch (err) {
+    // Se erro de conexão, pode ser que o Timberborn não está rodando
+    if (err.code === 'ECONNREFUSED') {
+      return { success: false, error: "Timberborn não está rodando em localhost:8080" };
+    }
+    return { success: false, error: err.message };
+  }
+}
+
 /* ========= CONFIGURAÇÕES ========= */
 function setMainWindow(win) { mainWindow = win; }
 function setToken(token) { globalAccessToken = token; }
+
+// Verifica e renova token se expirado
+async function ensureValidToken() {
+  if (!globalAccessToken) return false;
+  
+  try {
+    const tokenData = JSON.parse(fs.readFileSync("token.json"));
+    const created = tokenData.created_at;
+    const expiresIn = tokenData.expires_in * 1000; // converter para ms
+    const now = Date.now();
+    
+    // Se o token está prestes a expirar (menos de 5 minutos), renova
+    if ((now - created) > (expiresIn - 300000)) {
+      console.log("🔄 Token expirando, renovando...");
+      return await refreshAccessToken(tokenData.refresh_token);
+    }
+    
+    return true;
+  } catch (err) {
+    console.error("❌ Erro ao verificar token:", err.message);
+    return false;
+  }
+}
+
+// Renova o access token usando refresh token
+async function refreshAccessToken(refreshToken) {
+  try {
+    const response = await axios.post(
+      "https://id.kick.com/oauth/token",
+      new URLSearchParams({
+        grant_type: "refresh_token",
+        refresh_token: refreshToken,
+        client_id: process.env.KICK_CLIENT_ID,
+        client_secret: process.env.KICK_CLIENT_SECRET
+      }).toString(),
+      { headers: { "Content-Type": "application/x-www-form-urlencoded" } }
+    );
+    
+    const newTokenData = {
+      access_token: response.data.access_token,
+      refresh_token: response.data.refresh_token,
+      expires_in: response.data.expires_in,
+      created_at: Date.now(),
+      scope: response.data.scope
+    };
+    
+    fs.writeFileSync("token.json", JSON.stringify(newTokenData, null, 2));
+    globalAccessToken = newTokenData.access_token;
+    console.log("✅ Token renovado com sucesso");
+    logTechEvent("✅ Token renovado");
+    return true;
+  } catch (err) {
+    console.error("❌ Erro ao renovar token:", err.message);
+    logTechEvent("❌ Erro ao renovar token");
+    return false;
+  }
+}
+
+// Decodifica JWT para extrair informações (sem verificar assinatura, só para ler)
+function decodeJWT(token) {
+  try {
+    const parts = token.split('.');
+    if (parts.length !== 3) return null;
+    
+    const decoded = Buffer.from(parts[1], 'base64').toString('utf-8');
+    return JSON.parse(decoded);
+  } catch (err) {
+    return null;
+  }
+}
+
+// Descobre channel_id usando username (automático após login)
+async function discoverChannelIdByUsername(username) {
+  if (!username || username === "unknown") {
+    console.error("❌ Username não disponível para discovery");
+    logTechEvent("❌ Username não disponível");
+    return null;
+  }
+  
+  try {
+    console.log(`🔍 Descobrindo channel_id para username: ${username}`);
+    
+    // Chama endpoint /channels/{username} que sempre funciona
+    const response = await axios.get(
+      `https://api.kick.com/public/v1/channels/${username}`,
+      {
+        headers: { Accept: "*/*" }
+      }
+    );
+    
+    const channel = response.data?.data;
+    if (channel?.id) {
+      globalChannelId = channel.id;
+      
+      // Salva em channel.json para referência futura
+      fs.writeFileSync("channel.json", JSON.stringify({
+        channel_id: globalChannelId,
+        username: username,
+        channel_name: channel.name,
+        discovered_at: new Date().toISOString()
+      }, null, 2));
+      
+      logTechEvent(`✅ Channel ID descoberto: ${globalChannelId} (${username})`);
+      console.log(`✅ Channel ID descoberto: ${globalChannelId}`);
+      console.log(`   Canal: ${channel.name}`);
+      
+      return globalChannelId;
+    } else {
+      console.error("❌ Channel ID não encontrado na resposta");
+      logTechEvent("❌ Channel ID não encontrado na resposta");
+      return null;
+    }
+    
+  } catch (err) {
+    console.error(`❌ Erro ao descobrir channel_id: ${err.message}`);
+    logTechEvent(`❌ Erro ao descobrir channel_id: ${err.message}`);
+    return null;
+  }
+}
+
+// Busca informações do canal do usuário (para obter channel_id)
+async function fetchChannelInfo() {
+  // Primeiro verifica se token é válido
+  const tokenValid = await ensureValidToken();
+  if (!tokenValid) {
+    console.error("❌ Token inválido ou expirado");
+    logTechEvent("❌ Token inválido - faça login novamente");
+    return null;
+  }
+  
+  if (!globalAccessToken) return null;
+  
+  try {
+    console.log("🔍 Buscando informações do canal...");
+    
+    // Estratégia 1: PREFERIDA - Usar discovery automática via username
+    try {
+      const tokenData = JSON.parse(fs.readFileSync("token.json"));
+      if (tokenData.username && tokenData.username !== "unknown") {
+        console.log(`📝 Descobrindo via username: ${tokenData.username}`);
+        const channelId = await discoverChannelIdByUsername(tokenData.username);
+        if (channelId) {
+          return { channel_id: channelId };
+        }
+      }
+    } catch (err) {
+      console.warn("⚠️ Erro ao tentar discovery:", err.message);
+    }
+    
+    // Estratégia 2: Tentar decodificar JWT se discovery falhar
+    try {
+      const payload = decodeJWT(globalAccessToken);
+      if (payload?.sub) {
+        globalChannelId = payload.sub;
+        logTechEvent(`Channel ID extraído do token JWT: ${globalChannelId}`);
+        console.log(`✅ Channel ID obtido do token: ${globalChannelId}`);
+        return { channel_id: globalChannelId };
+      }
+    } catch (err1) {
+      console.warn("⚠️ Não foi possível extrair do JWT");
+    }
+    
+    // Estratégia 3: Tentar ler do arquivo de configuração (se existe)
+    try {
+      if (fs.existsSync("channel.json")) {
+        const channelConfig = JSON.parse(fs.readFileSync("channel.json"));
+        if (channelConfig.channel_id) {
+          globalChannelId = channelConfig.channel_id;
+          logTechEvent(`Channel ID lido do arquivo: ${globalChannelId}`);
+          console.log(`✅ Channel ID carregado do config: ${globalChannelId}`);
+          return { channel_id: globalChannelId };
+        }
+      }
+    } catch (err2) {
+      console.warn("⚠️ Não foi possível ler channel.json");
+    }
+    
+    console.warn("⚠️ Channel ID não encontrado");
+    console.warn("📝 Faça login novamente ou crie 'channel.json'");
+    logTechEvent("⚠️ Channel ID não encontrado. Faça login novamente.");
+    return null;
+    
+  } catch (err) {
+    console.error("❌ Erro ao buscar channel info:", err.message);
+    logTechEvent(`Erro ao buscar channel: ${err.message}`);
+    return null;
+  }
+}
 
 let createdRewardsCache = [];
 
@@ -396,6 +743,10 @@ module.exports = {
   startWebhookServer,
   setMainWindow,
   setToken,
+  ensureValidToken,
+  refreshAccessToken,
+  discoverChannelIdByUsername,
+  fetchChannelInfo,
   listCreatedRewards,
   listBotRewards,
   createReward,
@@ -403,5 +754,9 @@ module.exports = {
   subscribeToEvents,
   approveReward,
   rejectReward,
-  fetchRemoteEvents
+  fetchRemoteEvents,
+  startPolling,
+  stopPolling,
+  triggerTimberborn,
+  handleAcceptedRedemption
 };

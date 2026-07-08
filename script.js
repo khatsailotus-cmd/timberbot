@@ -5,6 +5,13 @@ function showTab(tabId) {
   if (tab) tab.classList.add("active");
   const btn = document.getElementById("tab-" + tabId);
   if (btn) btn.classList.add("active");
+  
+  // Carrega dados específicos da aba
+  if (tabId === "alavancas") {
+    loadRewardsForMapping();
+    loadTimberornLevers();
+    loadLeverMappings();
+  }
 }
 
 function addEventLog(message) {
@@ -186,9 +193,210 @@ if (window.electronAPI && window.electronAPI.onMessage) {
         addEventLog(`❌ Recompensa rejeitada: ${data.data.reward_title} por ${data.data.user}`);
         break;
 
+      case "created-rewards-listed": {
+        // Atualiza o seletor de recompensas também
+        const rewardSelect = document.getElementById("reward-selector");
+        if (rewardSelect && data.rewards && data.rewards.length > 0) {
+          rewardSelect.innerHTML = '<option value="">Selecione uma recompensa...</option>';
+          data.rewards.forEach(r => {
+            const option = document.createElement("option");
+            option.value = r.id;
+            option.textContent = r.title;
+            rewardSelect.appendChild(option);
+          });
+        }
+        break;
+      }
+
+      case "timberborn-levers-list": {
+        const leverSelect = document.getElementById("lever-selector");
+        const connStatusEl = document.getElementById("connection-status");
+        
+        if (leverSelect && data.levers && data.levers.length > 0) {
+          leverSelect.innerHTML = '<option value="">Selecione uma alavanca...</option>';
+          data.levers.forEach(lever => {
+            const option = document.createElement("option");
+            option.value = lever.id;
+            option.textContent = lever.name || lever.id;
+            leverSelect.appendChild(option);
+          });
+        }
+        
+        if (connStatusEl) {
+          connStatusEl.textContent = `✅ Timberborn conectado! ${data.levers?.length || 0} alavancas encontradas.`;
+          connStatusEl.style.color = "green";
+        }
+        break;
+      }
+
+      case "timberborn-levers-error": {
+        const connStatusEl = document.getElementById("connection-status");
+        const leverSelect = document.getElementById("lever-selector");
+        
+        if (connStatusEl) {
+          connStatusEl.textContent = `❌ ${data.message}`;
+          connStatusEl.style.color = "red";
+        }
+        
+        if (leverSelect) {
+          leverSelect.innerHTML = '<option value="">Timberborn offline</option>';
+        }
+        break;
+      }
+
+      case "lever-mapping-saved": {
+        const statusEl = document.getElementById("mapping-status");
+        statusEl.textContent = "✅ Mapeamento salvo com sucesso!";
+        statusEl.style.color = "green";
+        loadLeverMappings();
+        break;
+      }
+
+      case "lever-mapping-deleted": {
+        loadLeverMappings();
+        break;
+      }
+
+      case "lever-mappings-list": {
+        const tbody = document.getElementById("mappings-table-body");
+        tbody.innerHTML = "";
+        
+        if (!data.mappings || data.mappings.length === 0) {
+          const tr = document.createElement("tr");
+          const td = document.createElement("td");
+          td.colSpan = 3;
+          td.textContent = "Nenhum mapeamento criado ainda.";
+          td.style.textAlign = "center";
+          td.style.padding = "20px";
+          tr.appendChild(td);
+          tbody.appendChild(tr);
+        } else {
+          data.mappings.forEach(mapping => {
+            const tr = document.createElement("tr");
+            tr.style.borderBottom = "1px solid #ddd";
+            
+            const tdReward = document.createElement("td");
+            tdReward.textContent = mapping.reward_title || mapping.reward_id;
+            tdReward.style.border = "1px solid #ddd";
+            tdReward.style.padding = "10px";
+            
+            const tdLever = document.createElement("td");
+            tdLever.textContent = mapping.lever_name || mapping.lever_id;
+            tdLever.style.border = "1px solid #ddd";
+            tdLever.style.padding = "10px";
+            
+            const tdAction = document.createElement("td");
+            tdAction.style.border = "1px solid #ddd";
+            tdAction.style.padding = "10px";
+            tdAction.style.textAlign = "center";
+            
+            const deleteBtn = document.createElement("button");
+            deleteBtn.textContent = "Deletar";
+            deleteBtn.onclick = () => deleteLeverMapping(mapping.reward_id);
+            deleteBtn.style.padding = "5px 10px";
+            deleteBtn.style.background = "red";
+            deleteBtn.style.color = "white";
+            deleteBtn.style.border = "none";
+            deleteBtn.style.cursor = "pointer";
+            
+            tdAction.appendChild(deleteBtn);
+            tr.appendChild(tdReward);
+            tr.appendChild(tdLever);
+            tr.appendChild(tdAction);
+            tbody.appendChild(tr);
+          });
+        }
+        break;
+      }
+
+      case "username-required": {
+        const username = prompt("Seu username do Kick:", "");
+        if (username && username.trim()) {
+          addEventLog(`📝 Username fornecido: ${username}`);
+          if (window.electronAPI && window.electronAPI.setUsername) {
+            window.electronAPI.setUsername(username.trim());
+          }
+        } else {
+          addEventLog("❌ Username não fornecido");
+        }
+        break;
+      }
+
+      case "channel-discovered":
+        if (statusEl) statusEl.innerText = `Status: ${data.message}`;
+        addEventLog(data.message);
+        break;
+
+      case "channel-error":
+        addEventLog(`❌ ${data.message}`);
+        if (statusEl) statusEl.innerText = `Status: ${data.message}`;
+        break;
+
       default:
   console.log("Mensagem recebida:", data);
 
     }
   });
+}
+
+// ===== FUNÇÕES DE MAPEAMENTO DE ALAVANCAS =====
+function loadRewardsForMapping() {
+  if (window.electronAPI && window.electronAPI.listCreatedRewards) {
+    window.electronAPI.listCreatedRewards();
+  }
+}
+
+function loadTimberornLevers() {
+  if (window.electronAPI && window.electronAPI.getTimberornLevers) {
+    window.electronAPI.getTimberornLevers();
+  }
+}
+
+function loadLeverMappings() {
+  if (window.electronAPI && window.electronAPI.getAllLeverMappings) {
+    window.electronAPI.getAllLeverMappings();
+  }
+}
+
+function saveLeverMapping() {
+  const rewardSelect = document.getElementById("reward-selector");
+  const leverSelect = document.getElementById("lever-selector");
+  const statusEl = document.getElementById("mapping-status");
+  
+  const selectedRewardOption = rewardSelect.selectedOptions[0];
+  const selectedLeverOption = leverSelect.selectedOptions[0];
+  
+  if (!selectedRewardOption || !selectedLeverOption || !selectedRewardOption.value || !selectedLeverOption.value) {
+    statusEl.textContent = "❌ Selecione uma recompensa e uma alavanca";
+    statusEl.style.color = "red";
+    return;
+  }
+  
+  const rewardId = selectedRewardOption.value;
+  const rewardTitle = selectedRewardOption.textContent;
+  const leverId = selectedLeverOption.value;
+  const leverName = selectedLeverOption.textContent;
+  
+  if (window.electronAPI && window.electronAPI.saveLeverMapping) {
+    window.electronAPI.saveLeverMapping(rewardId, rewardTitle, leverId, leverName);
+    statusEl.textContent = "⏳ Salvando mapeamento...";
+    statusEl.style.color = "orange";
+  }
+}
+
+function deleteLeverMapping(rewardId) {
+  if (confirm("Deseja deletar este mapeamento?")) {
+    if (window.electronAPI && window.electronAPI.deleteLeverMapping) {
+      window.electronAPI.deleteLeverMapping(rewardId);
+    }
+  }
+}
+
+function testTimberornConnection() {
+  const statusEl = document.getElementById("connection-status");
+  statusEl.textContent = "⏳ Testando conexão...";
+  
+  if (window.electronAPI && window.electronAPI.getTimberornLevers) {
+    window.electronAPI.getTimberornLevers();
+  }
 }
