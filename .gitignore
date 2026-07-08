@@ -47,3 +47,7 @@ Thumbs.db
 # Misc
 *.swp
 *.swo
+
+#Zip files
+*.zip
+zip/
