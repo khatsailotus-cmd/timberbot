@@ -1,0 +1,12 @@
+{
+  "name": "timberbot-server",
+  "version": "1.0.0",
+  "description": "Webhook server para Timberbot",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
