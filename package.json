@@ -1,0 +1,27 @@
+{
+  "name": "timberbot",
+  "version": "1.0.0",
+  "description": "Bot integrador Kick e Timberborn",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "auth": "node auth.js",
+    "bot": "node bot.js"
+  },
+  "author": "Você",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^1.7.2",
+    "chalk": "^4.1.2",
+    "dotenv": "^17.4.2",
+    "express": "^4.19.2",
+    "express-session": "^1.19.0",
+    "ngrok": "^5.0.0-beta.2",
+    "open": "^11.0.0",
+    "sqlite3": "^5.1.6",
+    "ws": "^8.17.0"
+  },
+  "devDependencies": {
+    "electron": "^43.0.0"
+  }
+}

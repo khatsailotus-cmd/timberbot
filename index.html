@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Timberbot</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Timberbot</h1>
+    <div class="auth">
+      <div id="indicator" class="indicator"></div>
+      <button id="login-btn" onclick="window.electronAPI.loginWithKick()">Login</button>
+      <button id="logout-btn" onclick="window.electronAPI.logout()" style="display:none;">Logout</button>
+    </div>
+  </header>
+
+  <div class="tabs">
+    <button onclick="showTab('inicio')" id="tab-inicio" class="active">Início</button>
+    <button onclick="showTab('recompensas')" id="tab-recompensas">Recompensas</button>
+    <button onclick="showTab('criar')" id="tab-criar">Criar</button>
+    <button onclick="showTab('alavancas')" id="tab-alavancas">Alavancas</button>
+    <button onclick="showTab('config')" id="tab-config">Configurações</button>
+  </div>
+
+  <div id="inicio" class="tab-content active">
+    <p id="status">Status: aguardando ação...</p>
+    <h4>Histórico de eventos</h4>
+    <div id="event-log" class="log-box"><p>Nenhum evento ainda...</p></div>
+  </div>
+
+  <div id="recompensas" class="tab-content">
+    <h2>Recompensas Criadas pelo Bot</h2>
+    <button onclick="window.electronAPI.listCreatedRewards()">Listar recompensas</button>
+    <ul id="created-rewards-list"></ul>
+  </div>
+
+  <div id="criar" class="tab-content">
+    <h2>Criar Recompensa</h2>
+    <form id="reward-form">
+      <label>Título:<br><input type="text" id="title" maxlength="50" required></label><br><br>
+      <label>Descrição:<br><textarea id="description" maxlength="200"></textarea></label><br><br>
+      <label>Custo:<br><input type="number" id="cost" min="1" value="100" required></label><br><br>
+      <label>Cor de fundo:<br><input type="text" id="background_color" value="#00e701"></label><br><br>
+      <label>Ativado:<br>
+        <select id="is_enabled">
+          <option value="true" selected>Sim</option>
+          <option value="false">Não</option>
+        </select>
+      </label><br><br>
+      <button type="submit">Criar</button>
+    </form>
+    <p id="create-status">Preencha os campos e clique em Criar.</p>
+  </div>
+
+  <div id="alavancas" class="tab-content">
+    <h2>Alavancas</h2>
+    <p>Em breve: lista de alavancas criadas para Timberborn.</p>
+  </div>
+
+  <div id="config" class="tab-content">
+    <h2>Configurações</h2>
+    <p>Em breve: opções de configuração do bot.</p>
+  </div>
+
+  <!-- Script externo -->
+  <script src="script.js"></script>
+</body>
+</html>

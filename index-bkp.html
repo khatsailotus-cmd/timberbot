@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Timberbot</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    button { margin: 5px; padding: 10px 15px; font-size: 14px; }
+    #status { margin-top: 15px; font-weight: bold; white-space: pre-wrap; }
+  </style>
+</head>
+<body>
+  <h1>Timberbot</h1>
+
+  <button id="login-btn" onclick="loginWithKick()">Login com Kick</button>
+  <button onclick="openCreateReward()">Criar recompensa</button>
+  <button onclick="listRewards()">Listar recompensas</button>
+  <button onclick="logout()">Logout</button>
+
+  <p id="status">Status: aguardando ação...</p>
+
+  <script>
+    function loginWithKick() {
+      window.electronAPI.loginWithKick();
+    }
+
+    function openCreateReward() {
+    window.electronAPI.openCreateReward();
+  }
+
+    function listRewards() {
+      window.electronAPI.listRewards();
+    }
+
+    function logout() {
+      window.electronAPI.logout();
+    }
+
+    // Atualizações de status vindas do main
+    window.electronAPI.onMessage((_event, data) => {
+      const statusEl = document.getElementById("status");
+
+      switch (data.type) {
+        case "token-status":
+          statusEl.innerText = `Status: ${data.message}`;
+          break;
+
+        case "login-disabled":
+          document.getElementById("login-btn").disabled = data.disabled;
+          statusEl.innerText = data.disabled
+            ? "Status: ✅ Login ativo"
+            : "Status: ❌ Não logado";
+          break;
+
+        default:
+          statusEl.innerText = `Mensagem recebida:\n${JSON.stringify(data, null, 2)}`;
+          break;
+      }
+    });
+
+    // Eventos da Kick recebidos via webhook
+    window.electronAPI.onKickEvent((_event, data) => {
+      const statusEl = document.getElementById("status");
+
+      if (data.event === "channel.reward.redemption.updated") {
+        statusEl.innerText = `🎁 Recompensa resgatada:\n${JSON.stringify(data, null, 2)}`;
+      }
+    });
+  </script>
+</body>
+</html>

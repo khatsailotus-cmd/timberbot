@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Criar Recompensa</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    label { display: block; margin-top: 10px; }
+    input, textarea, select { width: 300px; padding: 5px; margin-top: 5px; }
+    button { margin-top: 15px; padding: 10px 15px; font-size: 14px; }
+    #status { margin-top: 15px; font-weight: bold; white-space: pre-wrap; }
+  </style>
+</head>
+<body>
+  <h1>Criar Recompensa</h1>
+
+  <form id="reward-form">
+    <label>Título (máx 50 caracteres):
+      <input type="text" id="title" maxlength="50" required>
+    </label>
+
+    <label>Descrição (máx 200 caracteres):
+      <textarea id="description" maxlength="200"></textarea>
+    </label>
+
+    <label>Custo (mínimo 1):
+      <input type="number" id="cost" min="1" value="100" required>
+    </label>
+
+    <label>Cor de fundo (hex):
+      <input type="text" id="background_color" value="#00e701">
+    </label>
+
+    <label>Ativado:
+      <select id="is_enabled">
+        <option value="true" selected>Sim</option>
+        <option value="false">Não</option>
+      </select>
+    </label>
+
+    <label>Requer entrada do usuário:
+      <select id="is_user_input_required">
+        <option value="false" selected>Não</option>
+        <option value="true">Sim</option>
+      </select>
+    </label>
+
+    <label>Pular fila de resgates:
+      <select id="should_redemptions_skip_request_queue">
+        <option value="false" selected>Não</option>
+        <option value="true">Sim</option>
+      </select>
+    </label>
+
+    <button type="submit">Criar</button>
+  </form>
+
+  <p id="status">Preencha os campos e clique em Criar.</p>
+
+  <script>
+    document.getElementById("reward-form").addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      const rewardData = {
+        title: document.getElementById("title").value.trim(),
+        description: document.getElementById("description").value.trim(),
+        cost: parseInt(document.getElementById("cost").value, 10),
+        background_color: document.getElementById("background_color").value.trim(),
+        is_enabled: document.getElementById("is_enabled").value === "true",
+        is_user_input_required: document.getElementById("is_user_input_required").value === "true",
+        should_redemptions_skip_request_queue:
+          document.getElementById("should_redemptions_skip_request_queue").value === "true"
+      };
+
+      window.electronAPI.createReward(rewardData);
+
+      document.getElementById("status").innerText = "⏳ Enviando recompensa...";
+    });
+
+    // Receber resposta do main
+    window.electronAPI.onMessage((_event, data) => {
+      if (data.type === "reward-created") {
+        document.getElementById("status").innerText =
+          `✅ Recompensa criada:\n${JSON.stringify(data.reward, null, 2)}`;
+      } else if (data.type === "reward-error") {
+        document.getElementById("status").innerText = `❌ Erro: ${data.message}`;
+      }
+    });
+  </script>
+</body>
+</html>

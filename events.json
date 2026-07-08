@@ -1,0 +1,1398 @@
+[
+  {
+    "timestamp": "2026-07-06T19:17:52.192Z",
+    "message": "🚀 Webhook ativo em http://127.0.0.1:3001/hooks"
+  },
+  {
+    "timestamp": "2026-07-06T19:17:52.538Z",
+    "message": "✅ Webhooks registrados: {\"data\":[{\"subscription_id\":\"01KWVJZGDE6N8CMYTAH06GF60V\",\"name\":\"chat.message.sent\",\"version\":1},{\"subscription_id\":\"01KWVK9S4MBZFMYBGNZ3Z8V1HJ\",\"name\":\"channel.reward.redemption.updated\",\"version\":1}],\"message\":\"OK\"}"
+  },
+  {
+    "timestamp": "2026-07-06T19:17:59.829Z",
+    "message": "🎁 Recompensa criada e salva no DB: aaa"
+  },
+  {
+    "timestamp": "2026-07-06T19:18:04.640Z",
+    "message": "🎁 Recompensa criada e salva no DB: oioioi"
+  },
+  {
+    "timestamp": "2026-07-06T19:18:16.068Z",
+    "message": "🚀 Webhook ativo em http://127.0.0.1:3001/hooks"
+  },
+  {
+    "timestamp": "2026-07-06T19:18:16.598Z",
+    "message": "✅ Webhooks registrados: {\"data\":[{\"subscription_id\":\"01KWVJZGDE6N8CMYTAH06GF60V\",\"name\":\"chat.message.sent\",\"version\":1},{\"subscription_id\":\"01KWVK9S4MBZFMYBGNZ3Z8V1HJ\",\"name\":\"channel.reward.redemption.updated\",\"version\":1}],\"message\":\"OK\"}"
+  },
+  {
+    "timestamp": "2026-07-06T19:26:13.902Z",
+    "message": "🚀 Webhook ativo em http://127.0.0.1:3001/hooks"
+  },
+  {
+    "timestamp": "2026-07-06T19:26:14.295Z",
+    "message": "✅ Webhooks registrados: {\"data\":[{\"subscription_id\":\"01KWVJZGDE6N8CMYTAH06GF60V\",\"name\":\"chat.message.sent\",\"version\":1},{\"subscription_id\":\"01KWVK9S4MBZFMYBGNZ3Z8V1HJ\",\"name\":\"channel.reward.redemption.updated\",\"version\":1}],\"message\":\"OK\"}"
+  },
+  {
+    "timestamp": "2026-07-06T19:26:33.614Z",
+    "message": "🗑️ Recompensa deletada do DB: 01KWWDVFX513JGX50K2VHY2REX"
+  },
+  {
+    "timestamp": "2026-07-06T19:26:55.846Z",
+    "message": "🚀 Webhook ativo em http://127.0.0.1:3001/hooks"
+  },
+  {
+    "timestamp": "2026-07-06T19:26:56.119Z",
+    "message": "✅ Webhooks registrados: {\"data\":[{\"subscription_id\":\"01KWVJZGDE6N8CMYTAH06GF60V\",\"name\":\"chat.message.sent\",\"version\":1},{\"subscription_id\":\"01KWVK9S4MBZFMYBGNZ3Z8V1HJ\",\"name\":\"channel.reward.redemption.updated\",\"version\":1}],\"message\":\"OK\"}"
+  },
+  {
+    "timestamp": "2026-07-06T19:28:08.433Z",
+    "message": "🚀 Webhook ativo em http://127.0.0.1:3001/hooks"
+  },
+  {
+    "timestamp": "2026-07-06T19:28:09.493Z",
+    "message": "✅ Webhooks registrados: {\"data\":[{\"subscription_id\":\"01KWVJZGDE6N8CMYTAH06GF60V\",\"name\":\"chat.message.sent\",\"version\":1},{\"subscription_id\":\"01KWVK9S4MBZFMYBGNZ3Z8V1HJ\",\"name\":\"channel.reward.redemption.updated\",\"version\":1}],\"message\":\"OK\"}"
+  },
+  {
+    "timestamp": "2026-07-06T19:28:22.621Z",
+    "message": "🚀 Webhook ativo em http://127.0.0.1:3001/hooks"
+  },
+  {
+    "timestamp": "2026-07-06T19:28:22.899Z",
+    "message": "✅ Webhooks registrados: {\"data\":[{\"subscription_id\":\"01KWVJZGDE6N8CMYTAH06GF60V\",\"name\":\"chat.message.sent\",\"version\":1},{\"subscription_id\":\"01KWVK9S4MBZFMYBGNZ3Z8V1HJ\",\"name\":\"channel.reward.redemption.updated\",\"version\":1}],\"message\":\"OK\"}"
+  },
+  {
+    "timestamp": "2026-07-06T19:33:44.022Z",
+    "message": "🚀 Webhook ativo em http://127.0.0.1:3001/hooks"
+  },
+  {
+    "timestamp": "2026-07-06T19:33:44.319Z",
+    "message": "✅ Webhooks registrados: {\"data\":[{\"subscription_id\":\"01KWVJZGDE6N8CMYTAH06GF60V\",\"name\":\"chat.message.sent\",\"version\":1},{\"subscription_id\":\"01KWVK9S4MBZFMYBGNZ3Z8V1HJ\",\"name\":\"channel.reward.redemption.updated\",\"version\":1}],\"message\":\"OK\"}"
+  },
+  {
+    "timestamp": "2026-07-06T19:34:28.818Z",
+    "message": "🚀 Webhook ativo em http://127.0.0.1:3001/hooks"
+  },
+  {
+    "timestamp": "2026-07-06T19:34:29.653Z",
+    "message": "✅ Webhooks registrados: {\"data\":[{\"subscription_id\":\"01KWVJZGDE6N8CMYTAH06GF60V\",\"name\":\"chat.message.sent\",\"version\":1},{\"subscription_id\":\"01KWVK9S4MBZFMYBGNZ3Z8V1HJ\",\"name\":\"channel.reward.redemption.updated\",\"version\":1}],\"message\":\"OK\"}"
+  },
+  {
+    "timestamp": "2026-07-06T19:34:57.961Z",
+    "message": "🚀 Webhook ativo em http://127.0.0.1:3001/hooks"
+  },
+  {
+    "timestamp": "2026-07-06T19:34:58.216Z",
+    "message": "✅ Webhooks registrados: {\"data\":[{\"subscription_id\":\"01KWVJZGDE6N8CMYTAH06GF60V\",\"name\":\"chat.message.sent\",\"version\":1},{\"subscription_id\":\"01KWVK9S4MBZFMYBGNZ3Z8V1HJ\",\"name\":\"channel.reward.redemption.updated\",\"version\":1}],\"message\":\"OK\"}"
+  },
+  {
+    "timestamp": "2026-07-06T19:35:14.559Z",
+    "message": "✅ Webhooks registrados: {\"data\":[{\"subscription_id\":\"01KWVJZGDE6N8CMYTAH06GF60V\",\"name\":\"chat.message.sent\",\"version\":1},{\"subscription_id\":\"01KWVK9S4MBZFMYBGNZ3Z8V1HJ\",\"name\":\"channel.reward.redemption.updated\",\"version\":1}],\"message\":\"OK\"}"
+  },
+  {
+    "timestamp": "2026-07-06T19:37:02.298Z",
+    "message": "🚀 Webhook ativo em http://127.0.0.1:3001/hooks"
+  },
+  {
+    "timestamp": "2026-07-06T19:37:02.567Z",
+    "message": "✅ Webhooks registrados: {\"data\":[{\"subscription_id\":\"01KWVJZGDE6N8CMYTAH06GF60V\",\"name\":\"chat.message.sent\",\"version\":1},{\"subscription_id\":\"01KWVK9S4MBZFMYBGNZ3Z8V1HJ\",\"name\":\"channel.reward.redemption.updated\",\"version\":1}],\"message\":\"OK\"}"
+  },
+  {
+    "timestamp": 1783367314390,
+    "message": "Erro ao atualizar cache de recompensas: Request failed with status code 403"
+  },
+  {
+    "timestamp": 1783367314395,
+    "message": "❌ Erro ao subscrever eventos: Request failed with status code 403"
+  },
+  {
+    "timestamp": 1783367346432,
+    "message": "Erro ao atualizar cache de recompensas: Request failed with status code 403"
+  },
+  {
+    "timestamp": 1783367346434,
+    "message": "❌ Erro ao subscrever eventos: Request failed with status code 403"
+  },
+  {
+    "timestamp": 1783369972257,
+    "message": "❌ Erro ao subscrever eventos: Request failed with status code 403"
+  },
+  {
+    "timestamp": 1783369972266,
+    "message": "Erro ao atualizar cache de recompensas: Request failed with status code 403"
+  },
+  {
+    "timestamp": 1783370055709,
+    "message": "Erro ao atualizar cache de recompensas: Request failed with status code 403"
+  },
+  {
+    "timestamp": 1783370055712,
+    "message": "❌ Erro ao subscrever eventos: Request failed with status code 403"
+  },
+  {
+    "timestamp": 1783370420251,
+    "message": "Erro ao atualizar cache de recompensas: Request failed with status code 403"
+  },
+  {
+    "timestamp": 1783370420254,
+    "message": "❌ Erro ao subscrever eventos: Request failed with status code 403"
+  },
+  {
+    "timestamp": 1783370499207,
+    "message": "Erro ao atualizar cache de recompensas: Request failed with status code 403"
+  },
+  {
+    "timestamp": 1783370499222,
+    "message": "❌ Erro ao subscrever eventos: Request failed with status code 403"
+  },
+  {
+    "timestamp": 1783370703411,
+    "message": "❌ Erro ao subscrever eventos: Request failed with status code 404"
+  },
+  {
+    "timestamp": 1783370705978,
+    "message": "Erro ao atualizar cache de recompensas: Request failed with status code 404"
+  },
+  {
+    "timestamp": 1783370855739,
+    "message": "❌ Erro ao subscrever eventos: Request failed with status code 404"
+  },
+  {
+    "timestamp": 1783370855814,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783370861363,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783370909934,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783370911995,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783370914262,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783370919542,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783370921144,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783370923032,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783371168252,
+    "message": "❌ Erro ao subscrever eventos: Request failed with status code 404"
+  },
+  {
+    "timestamp": 1783371168281,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783371174305,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783371399508,
+    "message": "❌ Erro ao subscrever eventos: Request failed with status code 404"
+  },
+  {
+    "timestamp": 1783371400112,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783371415096,
+    "message": "❌ Erro ao subscrever eventos: Request failed with status code 404"
+  },
+  {
+    "timestamp": 1783371415131,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783371433232,
+    "message": "❌ Erro ao subscrever eventos: Request failed with status code 404"
+  },
+  {
+    "timestamp": 1783371433255,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783371506851,
+    "message": "❌ Erro ao subscrever eventos: Request failed with status code 404"
+  },
+  {
+    "timestamp": 1783371507481,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783371551619,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783371552197,
+    "message": "❌ Erro ao subscrever eventos: Request failed with status code 404"
+  },
+  {
+    "timestamp": 1783371577571,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783371578060,
+    "message": "❌ Erro ao subscrever eventos: Request failed with status code 404"
+  },
+  {
+    "timestamp": 1783371617421,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783371617878,
+    "message": "❌ Erro ao subscrever eventos: Request failed with status code 404"
+  },
+  {
+    "timestamp": 1783371722200,
+    "message": "❌ Erro ao subscrever eventos: Request failed with status code 404"
+  },
+  {
+    "timestamp": 1783371722798,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783371752413,
+    "message": "❌ Erro ao subscrever eventos: Request failed with status code 404"
+  },
+  {
+    "timestamp": 1783371752443,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783371767278,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783374257513,
+    "message": "❌ Erro ao subscrever eventos: Request failed with status code 404"
+  },
+  {
+    "timestamp": 1783374258202,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783374334602,
+    "message": "❌ Erro ao subscrever eventos: Request failed with status code 404"
+  },
+  {
+    "timestamp": 1783374334641,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783374384452,
+    "message": "❌ Erro ao subscrever eventos: Request failed with status code 404"
+  },
+  {
+    "timestamp": 1783374384529,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783374404045,
+    "message": "❌ Erro ao subscrever eventos: Request failed with status code 404"
+  },
+  {
+    "timestamp": 1783374404079,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783374459416,
+    "message": "❌ Erro ao subscrever eventos: Request failed with status code 404"
+  },
+  {
+    "timestamp": 1783374459440,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783374473007,
+    "message": "❌ Erro ao subscrever eventos: Request failed with status code 404"
+  },
+  {
+    "timestamp": 1783374473046,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783374494411,
+    "message": "❌ Erro ao subscrever eventos: Request failed with status code 404"
+  },
+  {
+    "timestamp": 1783374494451,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783374518423,
+    "message": "❌ Erro ao subscrever eventos: Request failed with status code 404"
+  },
+  {
+    "timestamp": 1783374518448,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783374660531,
+    "message": "❌ Erro ao subscrever eventos: Request failed with status code 404"
+  },
+  {
+    "timestamp": 1783374660700,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783374764185,
+    "message": "❌ Erro ao subscrever eventos: Request failed with status code 404"
+  },
+  {
+    "timestamp": 1783374764230,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783374775176,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783374832726,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783374975698,
+    "message": "❌ Erro ao subscrever eventos: Request failed with status code 404"
+  },
+  {
+    "timestamp": 1783374975733,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783374981426,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783375010319,
+    "message": "❌ Erro ao subscrever eventos: Request failed with status code 404"
+  },
+  {
+    "timestamp": 1783375019400,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783375144110,
+    "message": "❌ Erro ao subscrever eventos: Request failed with status code 404"
+  },
+  {
+    "timestamp": 1783375144724,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783375151240,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783375334244,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783375334282,
+    "message": "❌ Erro ao subscrever eventos: Request failed with status code 404"
+  },
+  {
+    "timestamp": 1783375339490,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783375524978,
+    "message": "❌ Erro ao subscrever eventos: Request failed with status code 404"
+  },
+  {
+    "timestamp": 1783375525641,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783375531772,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783375540188,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783375551006,
+    "message": "❌ Erro ao subscrever eventos: Request failed with status code 404"
+  },
+  {
+    "timestamp": 1783375551011,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783375557155,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783375864368,
+    "message": "❌ Erro ao subscrever eventos: Request failed with status code 404"
+  },
+  {
+    "timestamp": 1783375864988,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783375870787,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783375898483,
+    "message": "❌ Erro ao subscrever eventos: Request failed with status code 404"
+  },
+  {
+    "timestamp": 1783375898527,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783375903383,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783375907550,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783376021578,
+    "message": "❌ Erro ao subscrever eventos: Request failed with status code 404"
+  },
+  {
+    "timestamp": 1783376022295,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783376029029,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783376031768,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783376036149,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783376119337,
+    "message": "❌ Erro ao subscrever eventos: Request failed with status code 404"
+  },
+  {
+    "timestamp": 1783376119366,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783376122999,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783376134216,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783376220082,
+    "message": "❌ Erro ao subscrever eventos: Request failed with status code 404"
+  },
+  {
+    "timestamp": 1783376220119,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783376226677,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783376232345,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783376361920,
+    "message": "❌ Erro ao subscrever eventos: Request failed with status code 404"
+  },
+  {
+    "timestamp": 1783376362525,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783376368064,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783376377106,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783376492369,
+    "message": "❌ Erro ao subscrever eventos: Request failed with status code 404"
+  },
+  {
+    "timestamp": 1783376493007,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783376498117,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783376505756,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783376516602,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783376717034,
+    "message": "❌ Erro ao subscrever eventos: Request failed with status code 404"
+  },
+  {
+    "timestamp": 1783376717756,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783376721473,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783376728034,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783376750529,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783376927233,
+    "message": "❌ Erro ao subscrever eventos: Request failed with status code 404"
+  },
+  {
+    "timestamp": 1783376927860,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783376949782,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783377126410,
+    "message": "❌ Erro ao subscrever eventos: Request failed with status code 404"
+  },
+  {
+    "timestamp": 1783377127134,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783377216485,
+    "message": "❌ Erro ao subscrever eventos: Request failed with status code 404"
+  },
+  {
+    "timestamp": 1783377217059,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783377381149,
+    "message": "❌ Erro ao subscrever eventos: Request failed with status code 404"
+  },
+  {
+    "timestamp": 1783377381747,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783377402520,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783377405099,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783377414762,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783377590546,
+    "message": "❌ Erro ao subscrever eventos: Request failed with status code 404"
+  },
+  {
+    "timestamp": 1783377590555,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783377606272,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783377737731,
+    "message": "❌ Erro ao subscrever eventos: Request failed with status code 404"
+  },
+  {
+    "timestamp": 1783377738460,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783377743172,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783377749943,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783378949304,
+    "message": "❌ Erro ao subscrever eventos: Request failed with status code 404"
+  },
+  {
+    "timestamp": 1783378949344,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783379125079,
+    "message": "❌ Erro ao subscrever eventos: Request failed with status code 404"
+  },
+  {
+    "timestamp": 1783379125745,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783379285855,
+    "message": "❌ Erro ao subscrever eventos: Request failed with status code 404"
+  },
+  {
+    "timestamp": 1783379286551,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783379472505,
+    "message": "❌ Erro ao subscrever eventos: Request failed with status code 404"
+  },
+  {
+    "timestamp": 1783379473060,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783379540758,
+    "message": "❌ Erro ao subscrever eventos: Request failed with status code 404"
+  },
+  {
+    "timestamp": 1783379540925,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783379725197,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783379725203,
+    "message": "❌ Erro ao subscrever eventos: Request failed with status code 404"
+  },
+  {
+    "timestamp": 1783379805100,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783379805683,
+    "message": "❌ Erro ao subscrever eventos: Request failed with status code 404"
+  },
+  {
+    "timestamp": 1783379931862,
+    "message": "❌ Erro ao subscrever eventos: Request failed with status code 401"
+  },
+  {
+    "timestamp": 1783379932513,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783380021697,
+    "message": "✅ Subscrição de eventos realizada"
+  },
+  {
+    "timestamp": 1783380271374,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783380271483,
+    "message": "✅ Subscrição de eventos realizada"
+  },
+  {
+    "timestamp": 1783380329053,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783380469817,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783380469998,
+    "message": "✅ Subscrição de eventos realizada"
+  },
+  {
+    "timestamp": 1783380488298,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783380785578,
+    "message": "✅ Subscrição de eventos realizada"
+  },
+  {
+    "timestamp": 1783380785965,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783380799699,
+    "message": "✅ Subscrição de eventos realizada"
+  },
+  {
+    "timestamp": 1783380956373,
+    "message": "✅ Subscrição de eventos realizada"
+  },
+  {
+    "timestamp": 1783380956735,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783381101255,
+    "message": "✅ Subscrição de eventos realizada"
+  },
+  {
+    "timestamp": 1783381101689,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783381123889,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783381124155,
+    "message": "✅ Subscrição de eventos realizada"
+  },
+  {
+    "timestamp": 1783381136635,
+    "message": "✅ Subscrição de eventos realizada"
+  },
+  {
+    "timestamp": 1783381146337,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783381304841,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783381305057,
+    "message": "✅ Subscrição de eventos realizada"
+  },
+  {
+    "timestamp": 1783381850137,
+    "message": "✅ Subscrição de eventos realizada"
+  },
+  {
+    "timestamp": 1783381850477,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783381866225,
+    "message": "✅ Subscrição de eventos realizada"
+  },
+  {
+    "timestamp": 1783382039719,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783382039957,
+    "message": "✅ Subscrição de eventos realizada"
+  },
+  {
+    "timestamp": 1783382214950,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783382215155,
+    "message": "✅ Subscrição de eventos realizada"
+  },
+  {
+    "timestamp": 1783382978852,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783382979077,
+    "message": "✅ Subscrição de eventos realizada"
+  },
+  {
+    "timestamp": 1783383016814,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783383215355,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783383215627,
+    "message": "✅ Subscrição de eventos realizada"
+  },
+  {
+    "timestamp": 1783384442583,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783384443355,
+    "message": "✅ Subscrição de eventos realizada"
+  },
+  {
+    "timestamp": 1783384552265,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783384552472,
+    "message": "✅ Subscrição de eventos realizada"
+  },
+  {
+    "timestamp": 1783384911050,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783384911200,
+    "message": "✅ Subscrição de eventos realizada"
+  },
+  {
+    "timestamp": 1783385088860,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783385089016,
+    "message": "✅ Subscrição de eventos realizada"
+  },
+  {
+    "timestamp": 1783385280565,
+    "message": "✅ Subscrição de eventos realizada"
+  },
+  {
+    "timestamp": 1783385280924,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783385437286,
+    "message": "✅ Subscrição de eventos realizada"
+  },
+  {
+    "timestamp": 1783385437621,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783385685580,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783385685802,
+    "message": "✅ Subscrição de eventos realizada"
+  },
+  {
+    "timestamp": 1783385723202,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783385723909,
+    "message": "✅ Subscrição de eventos realizada"
+  },
+  {
+    "timestamp": 1783385803986,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783385804147,
+    "message": "✅ Subscrição de eventos realizada"
+  },
+  {
+    "timestamp": 1783385885316,
+    "message": "✅ Subscrição de eventos realizada"
+  },
+  {
+    "timestamp": 1783385885695,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783385897470,
+    "message": "Evento recebido: channel.reward.redemption.updated"
+  },
+  {
+    "timestamp": 1783385908617,
+    "message": "Evento recebido: channel.reward.redemption.updated"
+  },
+  {
+    "timestamp": 1783386151501,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783386207680,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783386380504,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783386425282,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783386555213,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783387103999,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783387483045,
+    "message": "Erro ao subscrever eventos."
+  },
+  {
+    "timestamp": 1783387483727,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783387533236,
+    "message": "Erro ao subscrever eventos."
+  },
+  {
+    "timestamp": 1783387533323,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783387554996,
+    "message": "Erro ao subscrever eventos."
+  },
+  {
+    "timestamp": 1783387555064,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783387613292,
+    "message": "Erro ao subscrever eventos."
+  },
+  {
+    "timestamp": 1783387613366,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783388158860,
+    "message": "Erro ao subscrever eventos."
+  },
+  {
+    "timestamp": 1783388159599,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783388172930,
+    "message": "Erro ao subscrever eventos."
+  },
+  {
+    "timestamp": 1783388225997,
+    "message": "Erro ao subscrever eventos."
+  },
+  {
+    "timestamp": 1783388226776,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783388247236,
+    "message": "Erro ao subscrever eventos."
+  },
+  {
+    "timestamp": 1783388247284,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783388439617,
+    "message": "Eventos subscritos com sucesso."
+  },
+  {
+    "timestamp": 1783388440206,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783388476854,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783388476931,
+    "message": "Eventos subscritos com sucesso."
+  },
+  {
+    "timestamp": 1783388491557,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783388491567,
+    "message": "Eventos subscritos com sucesso."
+  },
+  {
+    "timestamp": 1783388798247,
+    "message": "Eventos subscritos com sucesso."
+  },
+  {
+    "timestamp": 1783388798913,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783388852286,
+    "message": "Eventos subscritos com sucesso."
+  },
+  {
+    "timestamp": 1783388852305,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783388954807,
+    "message": "Eventos subscritos com sucesso."
+  },
+  {
+    "timestamp": 1783388955375,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783388974611,
+    "message": "Evento recebido: channel.reward.redemption.updated"
+  },
+  {
+    "timestamp": 1783389680990,
+    "message": "Eventos subscritos com sucesso."
+  },
+  {
+    "timestamp": 1783389681645,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783389689270,
+    "message": "Evento recebido: channel.reward.redemption.updated"
+  },
+  {
+    "timestamp": 1783389734686,
+    "message": "Eventos subscritos com sucesso."
+  },
+  {
+    "timestamp": 1783389747229,
+    "message": "Evento recebido: channel.reward.redemption.updated"
+  },
+  {
+    "timestamp": 1783389825630,
+    "message": "Eventos subscritos com sucesso."
+  },
+  {
+    "timestamp": 1783389826255,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783389833605,
+    "message": "Evento recebido: channel.reward.redemption.updated"
+  },
+  {
+    "timestamp": 1783390216230,
+    "message": "Eventos subscritos com sucesso."
+  },
+  {
+    "timestamp": 1783390216787,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783390227922,
+    "message": "Evento recebido: channel.reward.redemption.updated"
+  },
+  {
+    "timestamp": 1783390463602,
+    "message": "Eventos subscritos com sucesso."
+  },
+  {
+    "timestamp": 1783390464153,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783390474624,
+    "message": "Eventos subscritos com sucesso."
+  },
+  {
+    "timestamp": 1783391114186,
+    "message": "Eventos subscritos com sucesso."
+  },
+  {
+    "timestamp": 1783391114948,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783391158958,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783391158962,
+    "message": "Eventos subscritos com sucesso."
+  },
+  {
+    "timestamp": 1783391180054,
+    "message": "Eventos subscritos com sucesso."
+  },
+  {
+    "timestamp": 1783391252709,
+    "message": "Eventos subscritos com sucesso."
+  },
+  {
+    "timestamp": 1783391253288,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783391267119,
+    "message": "Evento recebido: channel.reward.redemption.updated"
+  },
+  {
+    "timestamp": 1783391398328,
+    "message": "Eventos subscritos com sucesso."
+  },
+  {
+    "timestamp": 1783391398883,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783391412341,
+    "message": "Evento recebido: channel.reward.redemption.updated"
+  },
+  {
+    "timestamp": 1783391799126,
+    "message": "Eventos subscritos com sucesso."
+  },
+  {
+    "timestamp": 1783391799675,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783391811056,
+    "message": "Evento recebido: channel.reward.redemption.updated"
+  },
+  {
+    "timestamp": 1783392274789,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783392274809,
+    "message": "Eventos subscritos com sucesso."
+  },
+  {
+    "timestamp": 1783392281363,
+    "message": "Evento recebido: channel.reward.redemption.updated"
+  },
+  {
+    "timestamp": 1783393282363,
+    "message": "Eventos subscritos com sucesso."
+  },
+  {
+    "timestamp": 1783393282911,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783435427594,
+    "message": "Erro ao subscrever eventos."
+  },
+  {
+    "timestamp": 1783435428197,
+    "message": "Erro ao atualizar cache de recompensas: Request failed with status code 401"
+  },
+  {
+    "timestamp": 1783435535785,
+    "message": "Eventos subscritos com sucesso."
+  },
+  {
+    "timestamp": 1783435535789,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783435776277,
+    "message": "Eventos subscritos com sucesso."
+  },
+  {
+    "timestamp": 1783435776876,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783436321987,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783436322030,
+    "message": "Eventos subscritos com sucesso."
+  },
+  {
+    "timestamp": 1783436613678,
+    "message": "Eventos subscritos com sucesso."
+  },
+  {
+    "timestamp": 1783436614320,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783436708833,
+    "message": "Eventos subscritos com sucesso."
+  },
+  {
+    "timestamp": 1783436709383,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783436753248,
+    "message": "Eventos subscritos com sucesso."
+  },
+  {
+    "timestamp": 1783436753250,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783436839418,
+    "message": "Eventos subscritos com sucesso."
+  },
+  {
+    "timestamp": 1783436839501,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783437761731,
+    "message": "Eventos subscritos com sucesso."
+  },
+  {
+    "timestamp": 1783437762332,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783437938694,
+    "message": "Eventos subscritos com sucesso."
+  },
+  {
+    "timestamp": 1783437939227,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783437968473,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783437968497,
+    "message": "Eventos subscritos com sucesso."
+  },
+  {
+    "timestamp": 1783441192361,
+    "message": "Eventos subscritos com sucesso."
+  },
+  {
+    "timestamp": 1783441192539,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783441213456,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783441371051,
+    "message": "Evento recebido: channel.reward.redemption.updated"
+  },
+  {
+    "timestamp": 1783442697528,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783442698040,
+    "message": "Eventos subscritos com sucesso."
+  },
+  {
+    "timestamp": 1783442874071,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783443324750,
+    "message": "Evento recebido: channel.reward.redemption.updated"
+  },
+  {
+    "timestamp": 1783443412677,
+    "message": "Eventos subscritos com sucesso."
+  },
+  {
+    "timestamp": 1783444327648,
+    "message": "Evento recebido: channel.reward.redemption.updated"
+  },
+  {
+    "timestamp": 1783444362336,
+    "message": "Evento recebido: chat.message.sent"
+  },
+  {
+    "timestamp": 1783444567267,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783463325845,
+    "message": "Eventos subscritos com sucesso."
+  },
+  {
+    "timestamp": 1783463325864,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783463670252,
+    "message": "Eventos subscritos com sucesso."
+  },
+  {
+    "timestamp": 1783463670851,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783463893040,
+    "message": "Eventos subscritos com sucesso."
+  },
+  {
+    "timestamp": 1783463893550,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783471284742,
+    "message": "Erro ao subscrever eventos."
+  },
+  {
+    "timestamp": 1783471285262,
+    "message": "Erro ao atualizar cache de recompensas: Request failed with status code 401"
+  },
+  {
+    "timestamp": 1783471299745,
+    "message": "Eventos subscritos com sucesso."
+  },
+  {
+    "timestamp": 1783473248559,
+    "message": "Eventos subscritos com sucesso."
+  },
+  {
+    "timestamp": 1783473249173,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783473267620,
+    "message": "Eventos subscritos com sucesso."
+  },
+  {
+    "timestamp": 1783473390951,
+    "message": "Eventos subscritos com sucesso."
+  },
+  {
+    "timestamp": 1783473390967,
+    "message": "Cache de recompensas atualizado."
+  },
+  {
+    "timestamp": 1783535189245,
+    "message": "Erro ao subscrever eventos."
+  },
+  {
+    "timestamp": 1783535189793,
+    "message": "Erro ao atualizar cache de recompensas: Request failed with status code 401"
+  }
+]

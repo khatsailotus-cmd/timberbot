@@ -1,0 +1,160 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background: #0d0d0d;
+  color: #ffffff;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #1a1a1a;
+  padding: 10px 20px;
+}
+
+header h1 {
+  margin: 0;
+  color: #ffffff;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.auth {
+  display: flex;
+  align-items: center;
+}
+
+.indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin-right: 10px;
+  background: #d32f2f; /* padrão: não logado */
+}
+
+/* 🔥 Botões padronizados */
+button {
+  background: #1a1a1a;
+  color: #ffffff;
+  border: 1px solid #ff6f00;
+  padding: 6px 10px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background: #ff6f00;
+  color: #0d0d0d;
+  box-shadow: 0 0 6px #ff6f00; /* sombra suave laranja */
+}
+
+/* 🔥 Abas */
+.tabs {
+  display: flex;
+  background: #1a1a1a;
+  border-bottom: 1px solid #2d2d2d;
+}
+
+.tabs button {
+  flex: 1;
+  padding: 12px;
+}
+
+.tabs button.active {
+  background: #ff6f00;
+  color: #0d0d0d;
+  font-weight: bold;
+}
+
+#status {
+  margin-top: 15px;
+  white-space: pre-wrap;
+  color: #ffffff;
+}
+
+/* 🔥 Inputs */
+input, textarea, select {
+  background: #1a1a1a;
+  color: #ffffff;
+  border: 1px solid #2d2d2d;
+  padding: 6px;
+  border-radius: 4px;
+  width: 300px;
+}
+
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  box-shadow: 0 0 4px #ff6f00;
+  border-color: #ff6f00;
+}
+
+/* 🔥 Histórico de eventos */
+.log-box {
+  max-height: 300px;
+  overflow-y: auto;
+  background: #1a1a1a;
+  padding: 0;
+  margin-top: 0;
+  border-radius: 4px;
+  font-size: 12px;
+  border: 1px solid #2d2d2d;
+}
+
+/* 🔥 Lista de recompensas */
+#created-rewards-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 15px;
+  position: relative;
+  z-index: 1; /* nunca sobrepõe o formulário */
+}
+
+#created-rewards-list li {
+  font-size: 14px;
+  font-weight: normal;
+  background: #1a1a1a;
+  border: 1px solid #2d2d2d;
+  padding: 4px;
+  margin-bottom: 8px;
+  border-radius: 4px;
+  display: flex;
+  justify-content: space-between; /* texto à esquerda, botões à direita */
+  align-items: center;
+}
+
+.reward-actions {
+  display: flex;
+  gap: 8px; /* espaço entre botões */
+}
+
+.reward-actions button {
+  margin: 0; /* remove margem extra */
+}
+
+/* Destaque para resgates de recompensas do BOT */
+.log-box p.bot-reward {
+  color: #00e676; /* verde chamativo */
+}
+
+/* 🔥 Abas isoladas */
+.tab-content {
+  display: none;          /* escondida por padrão */
+  padding: 20px;
+  pointer-events: none;   /* não interativa por padrão */
+  position: relative;
+  z-index: 0;
+}
+
+.tab-content.active {
+  display: block;         /* visível quando ativa */
+  pointer-events: auto;   /* interativa quando ativa */
+  z-index: 2;             /* fica acima das outras */
+}
+
+/* 🔥 Formulário da aba Criar sempre acima */
+#reward-form {
+  position: relative;
+  z-index: 3; /* garante que inputs fiquem acima de qualquer lista */
+}
